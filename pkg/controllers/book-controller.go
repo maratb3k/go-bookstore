@@ -66,11 +66,11 @@ func UpdateBook(w http.ResponseWriter, r *http.Request) {
 	if updateBook.Name != "" {
 		bookDetails.Name = updateBook.Name
 	}
-	if updateBook.Author != "" {
-		bookDetails.Author = updateBook.Author
-	}
 	if updateBook.Publication != "" {
 		bookDetails.Publication = updateBook.Publication
+	}
+	if updateBook.AuthorId != 0 {
+		bookDetails.AuthorId = updateBook.AuthorId
 	}
 	db.Save(&bookDetails)
 	res, _ := json.Marshal(bookDetails)

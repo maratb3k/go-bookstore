@@ -12,9 +12,13 @@ var RegisterBookStoreRoutes = func(router *http.ServeMux) {
 	router.HandleFunc("DELETE /book/{id}", controllers.DeleteBook)
 	router.HandleFunc("GET /book/{id}/", controllers.GetBookById)
 	router.HandleFunc("PUT /book/{id}/", controllers.UpdateBook)
-	/*router.HandleFunc("/books", GetBooks).Methods("GET")
-	router.HandleFunc("/books/{id}", GetBookById).Methods("GET")
-	router.HandleFunc("/books", CreateBook).Methods("POST")
-	router.HandleFunc("/books/{id}", UpdateBook).Methods("PUT")
-	router.HandleFunc("/books/{id}", DeleteBook).Methods("DELETE")*/
+
+	router.HandleFunc("POST /author/", controllers.CreateAuthor)
+	router.HandleFunc("GET /authors/", controllers.GetAuthors)
+	router.HandleFunc("DELETE /author/{id}", controllers.DeleteAuthor)
+	router.HandleFunc("GET /author/{id}/", controllers.GetAuthorById)
+	router.HandleFunc("PUT /author/{id}/", controllers.UpdateAuthor)
+
+	router.HandleFunc("GET /login/google/", controllers.GoogleLogin)
+	router.HandleFunc("GET /login/google/callback/", controllers.GoogleCallback)
 }
